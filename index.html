@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LingoQuest - Learn English by Playing</title>
+  <meta name="description" content="Learn English words, practice grammar and play fun word games. Free and runs in your browser.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;600;700;800&family=Noto+Sans+Devanagari:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="bg" aria-hidden="true">
+    <span class="blob b1"></span><span class="blob b2"></span><span class="blob b3"></span>
+    <span class="float f1">A</span><span class="float f2">Z</span><span class="float f3">?</span>
+    <span class="float f4">Q</span><span class="float f5">!</span><span class="float f6">M</span>
+  </div>
+  <canvas id="confetti" aria-hidden="true"></canvas>
+
+  <header class="top">
+    <a href="#/home" class="brand"><span class="logo">L</span><b>Lingo<em>Quest</em></b></a>
+    <nav>
+      <a href="#/home" data-nav="home">Home</a>
+      <a href="#/learn" data-nav="learn">Learn</a>
+      <a href="#/games" data-nav="games">Games</a>
+      <a href="#/progress" data-nav="progress">Progress</a>
+    </nav>
+    <div class="pills">
+      <span class="pill" title="Day streak">🔥 <b data-stat="streak">0</b></span>
+      <span class="pill" title="Level">⭐ Lv <b data-stat="level">1</b></span>
+    </div>
+  </header>
+
+  <main>
+    <!-- HOME -->
+    <section id="view-home" class="view">
+      <div class="hero">
+        <div>
+          <h1>Learn English.<br><span class="grad">Play. Level up.</span></h1>
+          <p class="lead">Look up words, hear how they sound, then test yourself with quick games. Earn XP and keep your streak alive.</p>
+          <div class="row">
+            <a class="btn primary big" href="#/games">Start Playing</a>
+            <a class="btn ghost big" href="#/learn">Explore Words</a>
+          </div>
+        </div>
+        <div class="hero-card tilt">
+          <div class="wotd-label">Word of the Day</div>
+          <div class="wotd-word" id="wotd-word">...</div>
+          <div class="wotd-type" id="wotd-syn"></div>
+          <p id="wotd-def"></p>
+          <button class="btn small" id="wotd-btn">Explore this word</button>
+        </div>
+      </div>
+
+      <div class="xp-card">
+        <div class="xp-top"><span>Level <b data-stat="level">1</b></span><span><b data-stat="xpin">0</b> / 100 XP</span></div>
+        <div class="bar big"><i id="xpbar"></i></div>
+      </div>
+
+      <div class="grid3">
+        <a class="card tilt" href="#/learn"><div class="ico">📖</div><h3>Learn</h3><p>Meanings, examples, pronunciation, synonyms and antonyms for any word.</p></a>
+        <a class="card tilt" href="#/games"><div class="ico">🎮</div><h3>Play</h3><p>Five games: quiz, scramble, hangman, synonyms and grammar.</p></a>
+        <a class="card tilt" href="#/progress"><div class="ico">🏆</div><h3>Progress</h3><p>See your XP, streak, badges and saved words.</p></a>
+      </div>
+    </section>
+
+    <!-- LEARN -->
+    <section id="view-learn" class="view">
+      <h2 class="title">Word Explorer</h2>
+      <form id="search-form" class="search">
+        <input id="search-input" type="text" placeholder="Type an English word, e.g. serendipity" autocomplete="off" spellcheck="false" aria-label="Search a word">
+        <button class="btn primary" type="submit">Search</button>
+        <button class="btn ghost" type="button" id="random-btn">Random</button>
+      </form>
+      <div id="learn-out" class="learn-out">
+        <div class="empty">Search a word to see its meaning, sound, examples and related words.</div>
+      </div>
+    </section>
+
+    <!-- GAMES -->
+    <section id="view-games" class="view">
+      <h2 class="title">Pick a Game</h2>
+      <div class="grid3" id="game-grid"></div>
+    </section>
+
+    <!-- PLAY -->
+    <section id="view-play" class="view">
+      <a href="#/games" class="back">&larr; All games</a>
+      <div id="game-area" class="game"></div>
+    </section>
+
+    <!-- PROGRESS -->
+    <section id="view-progress" class="view">
+      <h2 class="title">Your Progress</h2>
+      <div class="grid4" id="stat-cards"></div>
+      <h3 class="sub">Badges</h3>
+      <div class="badges" id="badges"></div>
+      <h3 class="sub">My Words</h3>
+      <div id="saved-list" class="saved"></div>
+      <div class="row"><button class="btn ghost small" id="reset-btn">Reset all progress</button></div>
+    </section>
+  </main>
+
+  <footer>
+    Made for learners. Definitions from <a href="https://dictionaryapi.dev/" target="_blank" rel="noopener">Free Dictionary API</a>,
+    word relations from <a href="https://www.datamuse.com/api/" target="_blank" rel="noopener">Datamuse</a>, Hindi translation from <a href="https://mymemory.translated.net/" target="_blank" rel="noopener">MyMemory</a>.
+  </footer>
+
+  <div id="toast" class="toast" role="status"></div>
+  <script src="js/app.js"></script>
+</body>
+</html>
